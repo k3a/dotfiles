@@ -41,11 +41,6 @@ if [[ "$unamestr" == 'Darwin' ]]; then
 
 	# PHP
 	export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
-
-	# GO
-	export GOPATH="$HOME/go"
-	export PATH="/usr/local/go/bin/:$HOME/go/bin:$PATH"
-
 else
 	# color wrapper
 	export PATH="/usr/libexec/cw:/usr/local/bin:$PATH"
@@ -71,4 +66,7 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 export GROFF_NO_SGR=1
 
+# GO
+export GOPATH="$HOME/go"
+export PATH="/usr/local/go/bin/:$HOME/go/bin:$PATH"
 
