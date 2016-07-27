@@ -80,3 +80,7 @@ set clipboard=unnamed
 " Go: automatically add imports (use goimports instead of gofmt)
 let g:go_fmt_command = "goimports"
 
+" Syntastic
+let g:syntastic_go_checkers = 'gofmt' "['golint', 'govet', 'errcheck', 'gofmt', 'goimports']
+let g:go_list_type = "quickfix"
+
