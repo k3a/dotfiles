@@ -74,3 +74,6 @@ hi User5 ctermbg=28 ctermfg=white
 hi User6 ctermbg=23 ctermfg=white
 hi User7 ctermbg=53 ctermfg=white
 
+" set clipboard to * register
+set clipboard=unnamed
+
