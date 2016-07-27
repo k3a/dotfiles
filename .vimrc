@@ -77,3 +77,6 @@ hi User7 ctermbg=53 ctermfg=white
 " set clipboard to * register
 set clipboard=unnamed
 
+" Go: automatically add imports (use goimports instead of gofmt)
+let g:go_fmt_command = "goimports"
+
