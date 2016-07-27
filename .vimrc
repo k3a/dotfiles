@@ -53,6 +53,7 @@ autocmd BufReadPre *.plist set autoread
 autocmd BufReadPre *.plist silent !plutil -convert xml1 <afile> 2>&1 >/dev/null
 
 " status line
+set laststatus=2											"display status line always
 set statusline=
 set statusline+=%1*\[%n]									"buffernr
 set statusline+=%2*\ %<%F\ 									"File+path
