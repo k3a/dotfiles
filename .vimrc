@@ -1,5 +1,6 @@
 call pathogen#infect()			" include pathogen plugins
 syntax on						" enable syntax highlight
+set nocompatible				" be iMproved, required
 
 set modeline
 set cindent						" use cindent for indentation
@@ -79,8 +80,21 @@ set clipboard=unnamed
 
 " Go: automatically add imports (use goimports instead of gofmt)
 let g:go_fmt_command = "goimports"
+let g:go_list_type = "quickfix"
 
 " Syntastic
 let g:syntastic_go_checkers = 'gofmt' "['golint', 'govet', 'errcheck', 'gofmt', 'goimports']
-let g:go_list_type = "quickfix"
+
+" UntiSnips: expand snipped on Enter
+let g:UltiSnipsExpandTrigger = "<nop>"
+let g:ulti_expand_or_jump_res = 0
+function ExpandSnippetOrCarriageReturn()
+    let snippet = UltiSnips#ExpandSnippetOrJump()
+    if g:ulti_expand_or_jump_res > 0
+        return snippet
+    else
+        return "\<CR>"
+    endif
+endfunction
+inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
 
