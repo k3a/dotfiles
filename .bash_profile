@@ -47,7 +47,7 @@ if [[ "$unamestr" == 'Darwin' ]]; then
 
 else
 	# color wrapper
-	export PATH="/usr/libexec/cw:/usr/local/bin:$PATH"
+	# export PATH="/usr/libexec/cw:/usr/local/bin:$PATH"
 
 	# extra LD path
 	export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
