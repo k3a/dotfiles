@@ -1,0 +1,17 @@
+[core]
+	excludesfile = /Users/kexik/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[user]
+	name = Mario Hros
+	email = spam@k3a.me
+[color]
+	ui = auto
+[push]
+	default = simple
+[url "git@s1.ndemiccreations.com:"]
+	insteadOf = https://git.ndemiccreations.com/
