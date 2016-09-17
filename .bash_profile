@@ -12,7 +12,7 @@ if [[ "$unamestr" == 'Darwin' ]]; then
 	alias grep='grep --color=auto'
 
 	# MacPorts Installer addition on 2012-08-14_at_02:13:38: adding an appropriate PATH variable for use with MacPorts.
-	export PATH="/theos/bin:/droid/tools:/droid/platform-tools:/droid/sdk/platform-tools:/k3abin:/Work/docker/esp8266/:$PATH"
+	export PATH="/theos/bin:/droid/tools:/droid/platform-tools:/droid/sdk/platform-tools:/k3abin:/Volumes/Shared/bin-mac:/Work/docker/esp8266/:$PATH"
 	export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 	# Finished adapting your PATH environment variable for use with MacPorts.
 
