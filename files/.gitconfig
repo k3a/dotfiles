@@ -13,5 +13,3 @@
 	ui = auto
 [push]
 	default = simple
-[url "git@s1.ndemiccreations.com:"]
-	insteadOf = https://git.ndemiccreations.com/
