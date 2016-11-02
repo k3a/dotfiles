@@ -7,8 +7,6 @@ unamestr=`uname`
 if [[ "$unamestr" == 'Darwin' ]]; then
 	export CLICOLOR=1
 	export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-	#alias ls='ls -G'
-	alias ls='ls --color=auto' #GNU
 	alias grep='grep --color=auto'
 
 	# MacPorts Installer addition on 2012-08-14_at_02:13:38: adding an appropriate PATH variable for use with MacPorts.
