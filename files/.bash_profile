@@ -75,5 +75,5 @@ export GROFF_NO_SGR=1
 
 # GO
 export GOPATH="$HOME/go"
-export PATH="/usr/local/go/bin/:$HOME/go/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 
