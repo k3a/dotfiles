@@ -1,5 +1,6 @@
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export LANGUAGE=en
 export EDITOR=vim
 export TERM=xterm-256color
 
@@ -58,6 +59,9 @@ hn=`hostname`
 if [[ "$hn" == "zephyr" ]]; then
 	dynmotd
 	. /usr/local/Calpont/bin/calpontAlias
+elif [[ "$hn" == "lizard" ]];  then
+	export GDK_SCALE=2.3
+	export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 fi
 
 export EDITOR="vim"
