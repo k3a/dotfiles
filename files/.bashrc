@@ -60,8 +60,9 @@ if [[ "$hn" == "zephyr" ]]; then
 	dynmotd
 	. /usr/local/Calpont/bin/calpontAlias
 elif [[ "$hn" == "lizard" ]];  then
-	export GDK_SCALE=2.0 # real 2.3
+	export GDK_SCALE=1.0 # 2.0 ok, real 2.3
 	export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+	xhost +si:localuser:root &> /dev/null
 fi
 
 export EDITOR="vim"
