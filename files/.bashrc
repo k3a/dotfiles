@@ -6,6 +6,8 @@ export TERM=xterm-256color
 
 unamestr=`uname`
 
+#---------------- OS Conditions --------------------------
+
 if [[ "$unamestr" == 'Darwin' ]]; then
 	export CLICOLOR=1
 	export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
@@ -56,14 +58,24 @@ fi
 
 hn=`hostname`
 
+# ---------------- Hostname conditions ----------------------
+
 if [[ "$hn" == "zephyr" ]]; then
 	dynmotd
 	. /usr/local/Calpont/bin/calpontAlias
+
 elif [[ "$hn" == "lizard" ]];  then
-	export GDK_SCALE=1.0 # 2.0 ok, real 2.3
-	export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+	# allow root Xorg apps in Wayland
 	xhost +si:localuser:root &> /dev/null
+
+	# use gnome-keyring in the session
+	if [ -n "$DESKTOP_SESSION" ];then
+		eval $(gnome-keyring-daemon --start)
+		export SSH_AUTH_SOCK
+	fi
 fi
+
+# --------------------- General settings ---------------------
 
 export EDITOR="vim"
 
@@ -80,4 +92,5 @@ export GROFF_NO_SGR=1
 # GO
 export GOPATH="$HOME/go"
 export PATH="$HOME/go/bin:$PATH"
+
 
