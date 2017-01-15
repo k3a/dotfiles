@@ -89,6 +89,9 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 export GROFF_NO_SGR=1
 
+# my scripts
+export PATH="$HOME/bin:$PATH"
+
 # GO
 export GOPATH="$HOME/go"
 export PATH="$HOME/go/bin:$PATH"
