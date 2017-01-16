@@ -96,4 +96,8 @@ export PATH="$HOME/bin:$PATH"
 export GOPATH="$HOME/go:$HOME/Work/gameservices"
 export PATH="$HOME/go/bin:$PATH"
 
+# Node (Yarn)
+export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+
 
