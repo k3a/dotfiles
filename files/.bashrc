@@ -93,7 +93,7 @@ export GROFF_NO_SGR=1
 export PATH="$HOME/bin:$PATH"
 
 # GO
-export GOPATH="$HOME/go:$HOME/gameservices"
+export GOPATH="$HOME/go:$HOME/Work/gameservices"
 export PATH="$HOME/go/bin:$PATH"
 
 
