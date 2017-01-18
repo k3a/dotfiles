@@ -78,6 +78,9 @@ hi User7 ctermbg=53 ctermfg=white
 " set clipboard to * register
 " set clipboard=unnamed
 
+" disable mouse support
+set mouse=
+
 " Go: automatically add imports (use goimports instead of gofmt)
 let g:go_fmt_command = "goimports"
 let g:go_list_type = "quickfix"
