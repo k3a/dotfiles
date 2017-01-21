@@ -54,6 +54,9 @@ else
 
 	# extra LD path
 	export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
+
+	# colored ls
+	alias ls='ls --color=auto'
 fi
 
 hn=`hostname`
