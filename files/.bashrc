@@ -57,6 +57,10 @@ else
 
 	# colored ls
 	alias ls='ls --color=auto'
+
+	# android stuff
+	export ANDROID_HOME="$HOME/Android/Sdk"
+	export PATH="/opt/android-studio/gradle/gradle-3.2/bin:$PATH"
 fi
 
 hn=`hostname`
