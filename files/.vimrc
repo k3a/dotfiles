@@ -101,3 +101,5 @@ function ExpandSnippetOrCarriageReturn()
 endfunction
 inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
 
+" Language-specific
+autocmd Filetype javascript setlocal ts=2 sw=2 sts=2 expandtab
