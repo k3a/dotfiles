@@ -101,10 +101,11 @@ export PATH="$HOME/bin:$PATH"
 
 # GO
 export GOPATH="$HOME/go"
-export PATH="$HOME/go/bin:$PATH"
+export PATH="$PATH:$HOME/go/bin"
 
 # Node (Yarn)
 export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
 
 
 
