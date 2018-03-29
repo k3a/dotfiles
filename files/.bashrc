@@ -1,6 +1,18 @@
+# should be in /etc/locale.conf but let's overwrite anyway
 export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
 export LANGUAGE=en
+export LC_ADDRESS=cs_CZ.UTF-8
+export LC_COLLATE=cs_CZ.UTF-8
+export LC_CTYPE=cs_CZ.UTF-8
+export LC_MONETARY=cs_CZ.UTF-8
+export LC_MESSAGES=en_US.UTF-8
+export LC_NUMERIC=en_US.UTF-8
+export LC_PAPER=cs_CZ.UTF-8
+export LC_RESPONSE=en_US.UTF-8
+export LC_TELEPHONE=cs_CZ.UTF-8
+export LC_TIME=cs_CZ.UTF-8
+export LC_MEASUREMENT=cs_CZ.UTF-8
+
 export EDITOR=vim
 export TERM=xterm-256color
 
@@ -108,4 +120,4 @@ export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 
 
-
+export LOL=xxxx
