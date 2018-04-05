@@ -92,6 +92,15 @@ elif [[ "$hn" == "lizard" ]];  then
 		eval $(gnome-keyring-daemon --start)
 		export SSH_AUTH_SOCK
 	fi
+
+	export PATH="$HOME/.cargo/bin/:$HOME/Android/Sdk/tools:$HOME/.platformio/penv/bin:/mnt/linux/flutter/bin:$PATH"
+
+	alias droid.mtp="adb shell setprop sys.usb.config mtp,adb"
+	alias droid.sim="env QEMU_AUDIO_DRV=none emulator @Nexus_5X_API_25_x86 -qemu -soundhw pcspk"
+	alias tmp.tor="tor RunAsDaemon 0 DataDirectory /temp/torr Log \"notice stderr\""
+	alias ftp.dracipevnost="curlftpfs 134655.w55.wedos.net//www/domains/dracipevnost.cz"
+	alias ftp.okair="curlftpfs okair.cz"
+	alias tor.temp="tor RunAsDaemon 0 DataDirectory /temp/torr"
 fi
 
 # --------------------- General settings ---------------------
