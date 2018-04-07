@@ -44,6 +44,9 @@ bindkey \^U backward-kill-line
 # do not use menu completionm menu
 # (TAB would cycle through the menu requiring ENTER to confirm)
 unsetopt AUTO_MENU
+# Paste highlighting (added in 5.1) is now enabled by default to signal
+# that accept-line hasn't occurred. It may be disabled via
+zle_highlight+=(paste:none)
 
 # load legacy bashrc --
 if [ -f $HOME/.bashrc ]; then
