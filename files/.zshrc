@@ -29,18 +29,28 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+# User configuration --
 
+# where to store history
 HISTFILE=~/.zsh_histfile
+# runtime line history kept
 HISTSIZE=1000
+# saved history lines
 SAVEHIST=5000
+# emacs keys
 bindkey -e
-bindkey \^U backward-kill-line
+# ctrl+u backward kills the line
+bindkey \^U backward-kill-line 
+# do not use menu completionm menu
+# (TAB would cycle through the menu requiring ENTER to confirm)
+unsetopt AUTO_MENU
 
+# load legacy bashrc --
 if [ -f $HOME/.bashrc ]; then
 	source $HOME/.bashrc
 fi
 
+# helpers --
 open() { 
 	( nohup xdg-open $@ >/dev/null 2>&1 & )
 }
