@@ -85,10 +85,10 @@ if [[ "$hn" == "zephyr" ]]; then
 
 elif [[ "$hn" == "lizard" ]];  then
 	# allow root Xorg apps in Wayland
-	xhost +si:localuser:root &> /dev/null
+	# xhost +si:localuser:root &> /dev/null
 
 	# use gnome-keyring in the session
-	if [ -n "$DESKTOP_SESSION" ];then
+	if [ -n "$DISPLAY" ];then
 		eval $(gnome-keyring-daemon --start)
 		export SSH_AUTH_SOCK
 	fi
