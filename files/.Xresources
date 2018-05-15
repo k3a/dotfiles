@@ -1,4 +1,4 @@
-URxvt.perl-ext-common:  default,tabbedex,url-select
+URxvt.perl-ext-common:  default,tabbedex,url-select,searchable-scrollback,keyboard-select,selection-to-clipboard
 
 URxvt.geometry: 170x37
 URxvt.saveLines: 64000
@@ -27,6 +27,19 @@ URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.url-select.launcher: /usr/bin/xdg-open
 URxvt.url-select.underline: true
 URxvt.url-select.button: 1C
+
+! searchable-scrollback (alt+s to search)
+! <no opts set>
+
+! keyboard-select (alt+to to start text selection mode, j,k, vimlike etc)
+URxvt.keysym.M-t: perl:keyboard-select:activate
+! The following line overwrites the default Meta-s binding and allows to
+! activate keyboard-select directly in backward search mode:
+URxvt.keysym.M-s: perl:keyboard-select:search
+
+! selection-to-clipboard: copy always primary selection to clipboard
+! <no opts set>
+
 
 ! Copy/Paste, same keys as gnome-terminal
 ! https://stackoverflow.com/questions/39884093
