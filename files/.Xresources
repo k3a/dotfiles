@@ -34,7 +34,8 @@ URxvt.url-select.button: 1C
 ! keyboard-select (alt+to to start text selection mode, j,k, vimlike etc)
 URxvt.keysym.M-t: perl:keyboard-select:activate
 ! The following line overwrites the default Meta-s binding and allows to
-! activate keyboard-select directly in backward search mode:
+! activate keyboard-select directly in backward search mode.
+! Meaning to use n/N / ? (like in vi) for search
 URxvt.keysym.M-s: perl:keyboard-select:search
 
 ! selection-to-clipboard: copy always primary selection to clipboard
