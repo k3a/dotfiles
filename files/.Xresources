@@ -8,14 +8,17 @@ URxvt.scrollColor: #888888
 URxvt.scrollBar_right: yes
 URxvt.scrollstyle: plain
 
+! Scrolling behavior ----
+! let it scroll to bottom on keypress but allow scrolling 
+! in history without constantly jumping at the end on new TtyOutput
+URxvt*scrollTtyOutput:      false
+URxvt*scrollWithBuffer:     true
+URxvt*scrollTtyKeypress:    true
+
 ! Fonts -------------
 URxvt.font: xft:Misc Fixed:pixelsize=14
 !URxvt*font: xft:Monospace:pixelsize=13
 !URxvt*boldFont: xft:Monospace:pixelsize=13
-
-! tabbedex extension
-URxvt.tabbed.tabbedex-rs-prefix: %
-URxvt.tabbed.new-button: no
 
 ! matcher: url opening with left mouse button
 !URxvt.url-launcher: /usr/bin/xdg-open
@@ -41,7 +44,6 @@ URxvt.keysym.M-s: perl:keyboard-select:search
 ! selection-to-clipboard: copy always primary selection to clipboard
 ! <no opts set>
 
-
 ! Copy/Paste, same keys as gnome-terminal
 ! https://stackoverflow.com/questions/39884093
 ! Disable ISO 14755 unicode input so we can use Ctrl-Shift bindings
@@ -52,8 +54,27 @@ URxvt.iso14755_52:     false
 URxvt.keysym.C-S-0x43: eval:selection_to_clipboard
 URxvt.keysym.C-S-0x56: eval:paste_clipboard
 
+! Tab shortcuts on meta+number
+URxvt.keysym.Meta-1:      tabbedex:goto_tab_1
+URxvt.keysym.Meta-2:      tabbedex:goto_tab_2
+URxvt.keysym.Meta-3:      tabbedex:goto_tab_3
+URxvt.keysym.Meta-4:      tabbedex:goto_tab_4
+URxvt.keysym.Meta-5:      tabbedex:goto_tab_5
+URxvt.keysym.Meta-6:      tabbedex:goto_tab_6
+URxvt.keysym.Meta-7:      tabbedex:goto_tab_7
+URxvt.keysym.Meta-8:      tabbedex:goto_tab_8
+URxvt.keysym.Meta-9:      tabbedex:goto_tab_9
+URxvt.keysym.Meta-0:      tabbedex:goto_tab_10
+URxvt.tabbed.tabbedex-rs-prefix: %
+URxvt.tabbedex.autohide: no
+URxvt.tabbedex.tab-fg: 15
+URxvt.tabbedex.new-button: no
+URxvt.tabbedex.reopen-on-close: yes
+
+
 ! Theme -------------
 ! Fade the text by the given percentage when focus is lost
 URxvt.fading: 25
 *background: #000000
 *foreground: #ffffff
+
