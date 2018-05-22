@@ -22,10 +22,12 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-#  git
+  git
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
+
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -37,6 +39,8 @@ HISTFILE=~/.zsh_histfile
 HISTSIZE=1000
 # saved history lines
 SAVEHIST=5000
+# what chars are also considered part of word
+WORDCHARS='*?_-.[]~=&;!#$%^(){}<>"`'"'"'\@'
 # emacs keys
 bindkey -e
 # ctrl+u backward kills the line

@@ -15,10 +15,32 @@ URxvt*scrollTtyOutput:      false
 URxvt*scrollWithBuffer:     true
 URxvt*scrollTtyKeypress:    true
 
+! Keyboard remapping ----
+! Bind Ctrl-Shift-c & Ctrl-Shift-v to copy and paste
+! I dont know why, but I needed to use hex keysym values to get it to work
+!URxvt.keysym.C-S-0x43: eval:selection_to_clipboard
+!URxvt.keysym.C-S-0x56: eval:paste_clipboard
+! ctrl+left-right to move a word forward back
+!URxvt.keysym.Control-Left:    \033[1;5D
+!URxvt.keysym.Control-Right:    \033[1;5C
+! make CTRL+S behave like CTRL+C
+URxvt.keysym.Control-s: \003
+URxvt.keysym.Control-c: eval:selection_to_clipboard
+URxvt.keysym.Control-v: eval:paste_clipboard
+
 ! Fonts -------------
-URxvt.font: xft:Misc Fixed:pixelsize=14
-!URxvt*font: xft:Monospace:pixelsize=13
-!URxvt*boldFont: xft:Monospace:pixelsize=13
+!URxvt.font: xft:Misc Fixed:pixelsize=14
+!URxvt.font: xft:Inconsolata:pixelsize=14
+URxvt.font: -misc-fixed-medium-r-normal--14-130-75-75-c-70-iso8859-1
+
+! https://wiki.manjaro.org/index.php?title=Improve_Font_Rendering
+!Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
 
 ! matcher: url opening with left mouse button
 !URxvt.url-launcher: /usr/bin/xdg-open
@@ -49,10 +71,6 @@ URxvt.keysym.M-s: perl:keyboard-select:search
 ! Disable ISO 14755 unicode input so we can use Ctrl-Shift bindings
 URxvt.iso14755:        false
 URxvt.iso14755_52:     false
-! Bind Ctrl-Shift-c & Ctrl-Shift-v to copy and paste
-! I dont know why, but I needed to use hex keysym values to get it to work
-URxvt.keysym.C-S-0x43: eval:selection_to_clipboard
-URxvt.keysym.C-S-0x56: eval:paste_clipboard
 
 ! Tab shortcuts on meta+number
 URxvt.keysym.Meta-1:      tabbedex:goto_tab_1
@@ -65,14 +83,11 @@ URxvt.keysym.Meta-7:      tabbedex:goto_tab_7
 URxvt.keysym.Meta-8:      tabbedex:goto_tab_8
 URxvt.keysym.Meta-9:      tabbedex:goto_tab_9
 URxvt.keysym.Meta-0:      tabbedex:goto_tab_10
-URxvt.keysym.Control-Left:    \033[1;5D
-URxvt.keysym.Control-Right:    \033[1;5C
 URxvt.tabbed.tabbedex-rs-prefix: %
-URxvt.tabbedex.autohide: no
+URxvt.tabbedex.autohide: yes
 URxvt.tabbedex.tab-fg: 15
 URxvt.tabbedex.new-button: no
 URxvt.tabbedex.reopen-on-close: yes
-
 
 ! Theme -------------
 ! Fade the text by the given percentage when focus is lost
