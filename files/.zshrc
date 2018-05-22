@@ -40,9 +40,11 @@ HISTSIZE=1000
 # saved history lines
 SAVEHIST=5000
 # what chars are also considered part of word
-WORDCHARS='*?_-.[]~=&;!#$%^(){}<>"`'"'"'\@'
+WORDCHARS='*?_-.[]~=&;!#$%^\@'
 # emacs keys
 bindkey -e
+bindkey '^[f' emacs-forward-word
+bindkey '^[b' emacs-backward-word
 # ctrl+u backward kills the line
 bindkey \^U backward-kill-line 
 # do not use menu completionm menu
