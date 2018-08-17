@@ -72,7 +72,7 @@ else
 
 	# android stuff
 	export ANDROID_HOME="$HOME/Android/Sdk"
-	export PATH="/opt/android-studio/gradle/gradle-3.2/bin:$PATH"
+	export PATH="/opt/android-studio/gradle/gradle-3.2/bin:$ANDROID_HOME/platform-tools:$PATH"
 fi
 
 hn=`hostname`
@@ -93,17 +93,27 @@ elif [[ "$hn" == "lizard" ]];  then
 		export SSH_AUTH_SOCK
 	fi
 
-	export PATH="$HOME/.cargo/bin/:$HOME/Android/Sdk/tools:$HOME/.platformio/penv/bin:/mnt/linux/flutter/bin:$PATH"
+	# $HOME/.platformio/penv/bin
+	export PATH="$HOME/.cargo/bin/:$HOME/Android/Sdk/tools:/mnt/linux/flutter/bin:$PATH"
 
+	# mount shares
+	mountpoint -q /mnt/lith || sshfs lith:/home /mnt/lith/
+
+	# aliases
 	alias droid.mtp="adb shell setprop sys.usb.config mtp,adb"
 	alias droid.sim="env QEMU_AUDIO_DRV=none emulator @Nexus_5X_API_25_x86 -qemu -soundhw pcspk"
 	alias tmp.tor="tor RunAsDaemon 0 DataDirectory /temp/torr Log \"notice stderr\""
 	alias ftp.dracipevnost="curlftpfs 134655.w55.wedos.net//www/domains/dracipevnost.cz"
 	alias ftp.okair="curlftpfs okair.cz"
 	alias tor.temp="tor RunAsDaemon 0 DataDirectory /temp/torr"
+	alias snd.hp="pacmd set-card-profile 0 output:analog-stereo" # sound headphones
+	alias snd.dp="pacmd set-card-profile 0 output:hdmi-stereo" # sound hdmi
 fi
 
 # --------------------- General settings ---------------------
+
+alias py.switch3="sudo ln -sf /usr/bin/python3 /usr/bin/python"
+alias py.switch2="sudo ln -sf /usr/bin/python2 /usr/bin/python"
 
 export EDITOR="vim"
 
@@ -127,6 +137,13 @@ export PATH="$PATH:$HOME/go/bin"
 # Node (Yarn)
 export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+# xrdb
+xrdb -merge "$HOME/.Xresources"
 
+# make interrupt (what is normally ctrl+c) be ctrl+q
+#stty start ^J
+#stty intr ^Q
 
-export LOL=xxxx
+# repat interval in GNOME
+#gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 30
+#gsettings set org.gnome.desktop.peripherals.keyboard delay 250

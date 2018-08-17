@@ -45,6 +45,7 @@ WORDCHARS='*?_-.[]~=&;!#$%^\@'
 bindkey -e
 bindkey '^[f' emacs-forward-word
 bindkey '^[b' emacs-backward-word
+bindkey "^W" kill-region
 # ctrl+u backward kills the line
 bindkey \^U backward-kill-line 
 # do not use menu completionm menu
@@ -66,4 +67,8 @@ open() {
 run() {
 	( nohup $@ >/dev/null 2>&1 & )
 }
+function __calc_plugin {
+    echo "$*" | gore -autoimport
+}
+aliases[=]='noglob __calc_plugin'
 

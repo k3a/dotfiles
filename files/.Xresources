@@ -1,4 +1,5 @@
-URxvt.perl-ext-common:  default,tabbedex,url-select,searchable-scrollback,keyboard-select,selection-to-clipboard
+URxvt.perl-ext-common:  default,tabbedex,url-select,searchable-scrollback,keyboard-select
+!,selection-to-clipboard
 
 URxvt.geometry: 170x37
 URxvt.saveLines: 64000
@@ -23,8 +24,8 @@ URxvt*scrollTtyKeypress:    true
 ! ctrl+left-right to move a word forward back
 !URxvt.keysym.Control-Left:    \033[1;5D
 !URxvt.keysym.Control-Right:    \033[1;5C
-! make CTRL+S behave like CTRL+C
-URxvt.keysym.Control-s: \003
+! make CTRL+Q behave like CTRL+C
+URxvt.keysym.Control-q: \003
 URxvt.keysym.Control-c: eval:selection_to_clipboard
 URxvt.keysym.Control-v: eval:paste_clipboard
 
@@ -87,7 +88,7 @@ URxvt.tabbed.tabbedex-rs-prefix: %
 URxvt.tabbedex.autohide: yes
 URxvt.tabbedex.tab-fg: 15
 URxvt.tabbedex.new-button: no
-URxvt.tabbedex.reopen-on-close: yes
+!URxvt.tabbedex.reopen-on-close: yes
 
 ! Theme -------------
 ! Fade the text by the given percentage when focus is lost

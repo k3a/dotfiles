@@ -1,6 +1,18 @@
+# should be in /etc/locale.conf but let's overwrite anyway
 export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
 export LANGUAGE=en
+export LC_ADDRESS=cs_CZ.UTF-8
+export LC_COLLATE=cs_CZ.UTF-8
+export LC_CTYPE=cs_CZ.UTF-8
+export LC_MONETARY=cs_CZ.UTF-8
+export LC_MESSAGES=en_US.UTF-8
+export LC_NUMERIC=en_US.UTF-8
+export LC_PAPER=cs_CZ.UTF-8
+export LC_RESPONSE=en_US.UTF-8
+export LC_TELEPHONE=cs_CZ.UTF-8
+export LC_TIME=cs_CZ.UTF-8
+export LC_MEASUREMENT=cs_CZ.UTF-8
+
 export EDITOR=vim
 export TERM=xterm-256color
 
@@ -73,13 +85,26 @@ if [[ "$hn" == "zephyr" ]]; then
 
 elif [[ "$hn" == "lizard" ]];  then
 	# allow root Xorg apps in Wayland
-	xhost +si:localuser:root &> /dev/null
+	# xhost +si:localuser:root &> /dev/null
 
 	# use gnome-keyring in the session
-	if [ -n "$DESKTOP_SESSION" ];then
+	if [ -n "$DISPLAY" ];then
 		eval $(gnome-keyring-daemon --start)
 		export SSH_AUTH_SOCK
 	fi
+
+	# $HOME/.platformio/penv/bin
+	export PATH="$HOME/.cargo/bin/:$HOME/Android/Sdk/tools:/mnt/linux/flutter/bin:$PATH"
+
+	# mount shares
+	mountpoint -q /mnt/lith || sshfs lith:/home /mnt/lith/
+
+	alias droid.mtp="adb shell setprop sys.usb.config mtp,adb"
+	alias droid.sim="env QEMU_AUDIO_DRV=none emulator @Nexus_5X_API_25_x86 -qemu -soundhw pcspk"
+	alias tmp.tor="tor RunAsDaemon 0 DataDirectory /temp/torr Log \"notice stderr\""
+	alias ftp.dracipevnost="curlftpfs 134655.w55.wedos.net//www/domains/dracipevnost.cz"
+	alias ftp.okair="curlftpfs okair.cz"
+	alias tor.temp="tor RunAsDaemon 0 DataDirectory /temp/torr"
 fi
 
 # --------------------- General settings ---------------------
@@ -101,10 +126,8 @@ export PATH="$HOME/bin:$PATH"
 
 # GO
 export GOPATH="$HOME/go"
-export PATH="$HOME/go/bin:$PATH"
+export PATH="$PATH:$HOME/go/bin"
 
 # Node (Yarn)
 export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-
 
