@@ -17,12 +17,15 @@ COMPLETION_WAITING_DOTS="true"
 # much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+# disable auto-escaping URLs
+DISABLE_MAGIC_FUNCTIONS="true"
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
+#  git
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
@@ -36,9 +39,9 @@ source $ZSH/oh-my-zsh.sh
 # where to store history
 HISTFILE=~/.zsh_histfile
 # runtime line history kept
-HISTSIZE=1000
+HISTSIZE=5000
 # saved history lines
-SAVEHIST=5000
+SAVEHIST=10000
 # what chars are also considered part of word
 WORDCHARS='*?_-.[]~=&;!#$%^\@'
 # emacs keys
@@ -70,5 +73,14 @@ run() {
 function __calc_plugin {
     echo "$*" | gore -autoimport
 }
-aliases[=]='noglob __calc_plugin'
+#aliases[=]='noglob __calc_plugin'
+
+
+# Perl CPAN
+PATH="/home/kexik/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/kexik/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/kexik/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/kexik/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/kexik/perl5"; export PERL_MM_OPT;
+
 

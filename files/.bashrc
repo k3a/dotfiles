@@ -14,6 +14,7 @@ export LC_TIME=cs_CZ.UTF-8
 export LC_MEASUREMENT=cs_CZ.UTF-8
 
 export EDITOR=vim
+export SYSTEMD_EDITOR="/usr/bin/vim"
 export TERM=xterm-256color
 
 unamestr=`uname`
@@ -72,7 +73,7 @@ else
 
 	# android stuff
 	export ANDROID_HOME="$HOME/Android/Sdk"
-	export PATH="/opt/android-studio/gradle/gradle-3.2/bin:$ANDROID_HOME/platform-tools:$PATH"
+	export PATH="$PATH:/opt/android-studio/gradle/gradle-3.2/bin:$ANDROID_HOME/platform-tools"
 fi
 
 hn=`hostname`
@@ -83,18 +84,22 @@ if [[ "$hn" == "zephyr" ]]; then
 	dynmotd
 	. /usr/local/Calpont/bin/calpontAlias
 
-elif [[ "$hn" == "lizard" ]];  then
+elif [[ "$hn" == "lizard" ]] || [[ "$hn" == "puma" ]];  then
 	# allow root Xorg apps in Wayland
 	# xhost +si:localuser:root &> /dev/null
 
 	# use gnome-keyring in the session
 	if [ -n "$DISPLAY" ];then
-		eval $(gnome-keyring-daemon --start)
-		export SSH_AUTH_SOCK
+		#eval $(gnome-keyring-daemon --start)
+		##eval $(ssh-agent)
+		##export SSH_AUTH_SOCK
+		#export SSH_ASKPASS=ksshaskpass
+
+		# using systemd approach now
+		# https://wiki.archlinux.org/index.php/SSH_keys#ssh-agent
 	fi
 
-	# $HOME/.platformio/penv/bin
-	export PATH="$HOME/.cargo/bin/:$HOME/Android/Sdk/tools:/mnt/linux/flutter/bin:$PATH"
+	export PATH="$HOME/.cargo/bin/:$HOME/Android/Sdk/tools:$PATH"
 
 	# mount shares
 	mountpoint -q /mnt/lith || sshfs lith:/home /mnt/lith/
@@ -106,14 +111,18 @@ elif [[ "$hn" == "lizard" ]];  then
 	alias ftp.dracipevnost="curlftpfs 134655.w55.wedos.net//www/domains/dracipevnost.cz"
 	alias ftp.okair="curlftpfs okair.cz"
 	alias tor.temp="tor RunAsDaemon 0 DataDirectory /temp/torr"
-	alias snd.hp="pacmd set-card-profile 0 output:analog-stereo" # sound headphones
-	alias snd.dp="pacmd set-card-profile 0 output:hdmi-stereo" # sound hdmi
+	alias snd.hp="pacmd set-card-profile 1 output:analog-stereo" # sound headphones
+	alias snd.dp="pacmd set-card-profile 1 output:hdmi-stereo" # sound hdmi
 fi
 
 # --------------------- General settings ---------------------
 
 alias py.switch3="sudo ln -sf /usr/bin/python3 /usr/bin/python"
 alias py.switch2="sudo ln -sf /usr/bin/python2 /usr/bin/python"
+alias unpayload="zcat Payload | cpio -id"
+alias gcd="git clone --depth=1"
+alias vscode="run vscodium"
+alias zswap-status="sudo grep -R . /sys/kernel/slab/zswap_entry /sys/kernel/debug/zswap"
 
 export EDITOR="vim"
 
@@ -133,6 +142,11 @@ export PATH="$HOME/bin:$PATH"
 # GO
 export GOPATH="$HOME/go"
 export PATH="$PATH:$HOME/go/bin"
+
+# Flutter and Dart
+export PUB_CACHE="$HOME/.cache/pub"
+export FLUTTER_ROOT="/mnt/ssd/flutter"
+export PATH="$PUB_CACHE/bin:$FLUTTER_ROOT/bin:$FLUTTER_ROOT/bin/cache/dart-sdk/bin:$PATH"
 
 # Node (Yarn)
 export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
